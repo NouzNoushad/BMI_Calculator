@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class WeightSlider extends StatelessWidget {
-  const WeightSlider({
+class NumberSlider extends StatelessWidget {
+  const NumberSlider({
     super.key,
     required this.maxValue,
     required this.minValue,
@@ -74,11 +74,12 @@ class WeightSlider extends StatelessWidget {
   bool _userStoppedScrolling(Notification notification) {
     return notification is UserScrollNotification &&
         notification.direction == ScrollDirection.idle &&
+        // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
         scrollController.position.activity is! HoldScrollActivity;
   }
 
   _animateTo(int valueToSelect, {int durationMillis = 200}) {
-    double targetExtent = (valueToSelect - minValue) * itemExtent;
+    double targetExtent = (valueToSelect - (minValue + 1)) * itemExtent;
     scrollController.animateTo(
       targetExtent,
       duration: Duration(milliseconds: durationMillis),
@@ -95,7 +96,7 @@ class WeightSlider extends StatelessWidget {
       }
 
       if (middleValue != value) {
-        onChanged(middleValue); //update selection
+        onChanged(middleValue);
       }
     }
     return true;

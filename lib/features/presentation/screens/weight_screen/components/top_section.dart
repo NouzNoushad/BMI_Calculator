@@ -1,66 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'weight_slider.dart';
+import '../../../../../core/utils/colors.dart';
 
-const Color backgroundColor = Color.fromRGBO(54, 52, 80, 1);
-const Color darkBackgroundColor = Color.fromRGBO(34, 33, 57, 1);
-const Color blueColor = Color.fromRGBO(101, 85, 226, 1);
-const Color lightBlueColor = Color.fromRGBO(146, 132, 250, 1);
+class BuildTopSection extends StatelessWidget {
+  const BuildTopSection({super.key});
 
-class BMIWeightScreen extends StatefulWidget {
-  const BMIWeightScreen({super.key});
-
-  @override
-  State<BMIWeightScreen> createState() => _BMIWeightScreenState();
-}
-
-class _BMIWeightScreenState extends State<BMIWeightScreen> {
-  int weight = 50;
-  ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: buildTopSection(),
-            ),
-            Expanded(
-              flex: 2,
-              child: buildBottomSection(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildBottomSection() => Column(
-        children: [
-          Expanded(
-              child: WeightSlider(
-            scrollController: scrollController,
-            maxValue: 130,
-            minValue: 10,
-            value: weight,
-            onChanged: (val) => setState(() => weight = val),
-            width: MediaQuery.of(context).size.width,
-          )),
-          Expanded(
-              flex: 3,
-              child: Container(
-                color: Colors.green,
-              )),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.1,
-            color: Colors.red,
-          ),
-        ],
-      );
-
-  Widget buildTopSection() => Column(
+    return  Column(
         children: [
           const Padding(
             padding: EdgeInsets.all(8.0),
@@ -87,7 +34,7 @@ class _BMIWeightScreenState extends State<BMIWeightScreen> {
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
-                                color: darkBackgroundColor,
+                                color: AppColors.darkBackgroundColor,
                                 border:
                                     Border.all(width: 2, color: Colors.white30),
                               ),
@@ -116,7 +63,7 @@ class _BMIWeightScreenState extends State<BMIWeightScreen> {
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
-                                color: darkBackgroundColor,
+                                color: AppColors.darkBackgroundColor,
                                 border:
                                     Border.all(width: 2, color: Colors.white30),
                               ),
@@ -140,4 +87,5 @@ class _BMIWeightScreenState extends State<BMIWeightScreen> {
           )
         ],
       );
+  }
 }
