@@ -13,7 +13,7 @@ class BuildBottomSection extends StatefulWidget {
 }
 
 class _BuildBottomSectionState extends State<BuildBottomSection> {
-  int weight = 50;
+  int age = 50;
   ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -47,8 +47,8 @@ class _BuildBottomSectionState extends State<BuildBottomSection> {
                       scrollController: scrollController,
                       maxValue: 120,
                       minValue: 0,
-                      value: weight,
-                      onChanged: (val) => setState(() => weight = val),
+                      value: age,
+                      onChanged: (val) => setState(() => age = val),
                       width: MediaQuery.of(context).size.width,
                     ),
                   ],

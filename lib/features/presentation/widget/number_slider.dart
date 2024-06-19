@@ -10,6 +10,8 @@ class NumberSlider extends StatelessWidget {
     required this.value,
     required this.onChanged,
     required this.scrollController,
+    this.selectedFontSize = 30,
+    this.unSelectedFontSize = 18,
   });
   final int minValue;
   final int maxValue;
@@ -17,6 +19,8 @@ class NumberSlider extends StatelessWidget {
   final int value;
   final ValueChanged<int> onChanged;
   final ScrollController scrollController;
+  final double selectedFontSize;
+  final double unSelectedFontSize;
 
   double get itemExtent => width / 5;
 
@@ -47,12 +51,12 @@ class NumberSlider extends StatelessWidget {
                     child: Text(
                       itemValue.toString(),
                       style: itemValue == value
-                          ? const TextStyle(
-                              fontSize: 30,
+                          ? TextStyle(
+                              fontSize: selectedFontSize,
                               color: Colors.white,
                             )
-                          : const TextStyle(
-                              fontSize: 18,
+                          : TextStyle(
+                              fontSize: unSelectedFontSize,
                               color: Colors.white,
                             ),
                     ),
