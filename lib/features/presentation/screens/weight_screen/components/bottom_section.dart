@@ -69,8 +69,37 @@ class _BuildBottomSectionState extends State<BuildBottomSection> {
         )),
         const Expanded(flex: 3, child: BuildWeightDesign()),
         Container(
-          height: MediaQuery.of(context).size.height * 0.1,
-          color: Colors.red,
+          height: context.height * 0.1,
+          width: context.width,
+          color: Colors.transparent,
+          child: Center(
+            child: SizedBox(
+              height: context.height * 0.065,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.blueColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      )),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Next',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      )
+                    ],
+                  )),
+            ),
+          ),
         ),
       ],
     );
